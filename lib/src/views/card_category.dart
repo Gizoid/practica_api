@@ -31,14 +31,14 @@ class CardCategory extends StatelessWidget
       ),
       decoration: BoxDecoration
       (
-        color: Colors.deepOrange[100],
+        color: Colors.white,
         shape: BoxShape.rectangle,
         border: Border.all
         (
-          width: 5.0,
-          color: Colors.brown
+          width: 4,
+          color: Color.fromARGB(255, 214, 199, 141)
         ),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(10),
         boxShadow:
         [
           BoxShadow
@@ -60,6 +60,7 @@ class CardCategory extends StatelessWidget
             (
               child: FadeInImage
               (
+                height: 100,
                 placeholder: AssetImage('images/activity_indicator.gif'),
                 image: NetworkImage('${category.strCategoryThumb}'),
                 fadeInDuration: Duration(milliseconds: 500),
@@ -71,7 +72,7 @@ class CardCategory extends StatelessWidget
               category.strCategory,
               style: TextStyle
               (
-                color: Colors.brown[800],
+                color: Color.fromARGB(255, 216, 150, 83),
                 fontWeight: FontWeight.bold
               ),
               textAlign: TextAlign.center,

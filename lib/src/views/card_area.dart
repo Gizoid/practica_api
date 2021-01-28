@@ -27,97 +27,66 @@ class CardArea extends StatelessWidget
       margin: EdgeInsets.symmetric
       (
         horizontal: 10,
-        vertical: 5
+        vertical: 10
       ),
       decoration: BoxDecoration
       (
-        borderRadius: BorderRadius.circular(15),
+        color: Colors.white,
+        shape: BoxShape.rectangle,
+        border: Border.all
+        (
+          width: 4,
+          color: Color.fromARGB(255, 214, 199, 141)
+        ),
+        borderRadius: BorderRadius.circular(10),
         boxShadow:
         [
           BoxShadow
           (
-            color:Colors.orange[200],
-            offset: Offset(0,.5),
+            color:Colors.black54,
+            offset: Offset(5,3),
             blurRadius: 5
           )
         ]
       ),
-      child: ClipRRect
+      child: FlatButton
       (
-        borderRadius: BorderRadius.circular(10),
-        child: Stack
+        child: Column
         (
-          alignment: Alignment.bottomCenter,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: 
           [
             Container
             (
-              decoration: BoxDecoration
-              (
-                color: Colors.orange[200],
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                border: Border.all
-                (
-                  width: 5.0,
-                  color: Colors.brown
-                )
-              ),
               child: FadeInImage
               (
+                height: 100,
                 placeholder: AssetImage('images/activity_indicator.gif'),
                 image: AssetImage('images/${area.strArea}.png'),
                 fadeInDuration: Duration(milliseconds: 500),
                 fit: BoxFit.cover
               )
             ),
-            Opacity
+            Text
             (
-              opacity: .5,
-              child: Container
+              area.strArea,
+              style: TextStyle
               (
-                width: 250,
-                height: 50,
-                color: Colors.black,
-                child: Padding
-                (
-                  padding: const EdgeInsets.all(10),
-                  child: Row
-                  (
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children:
-                    [
-                      Text
-                      (
-                        area.strArea,
-                        style: TextStyle
-                        (
-                          color: Colors.white
-                        ),
-                      ),
-                      FlatButton
-                      (
-                        child: Icon
-                        (
-                          Icons.chevron_right,
-                          color: Colors.white
-                        ),
-                        onPressed: ()
-                        {
-                          Navigator.push
-                          (
-                            context,
-                            MaterialPageRoute(builder: (context) => MealList(category: null, area: area, letter: null))
-                          );
-                        }
-                      )
-                    ]
-                  )
-                )
-              )
+                color: Color.fromARGB(255, 216, 150, 83),
+                fontWeight: FontWeight.bold
+              ),
+              textAlign: TextAlign.center,
             )
           ]
-        )
+        ),
+        onPressed: ()
+        {
+          Navigator.push
+          (
+            context,
+            MaterialPageRoute(builder: (context) => MealList(category: null, area: area, letter: null))
+          );
+        }
       )
     );
   }

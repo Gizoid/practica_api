@@ -46,7 +46,7 @@ class _InicioState extends State<Inicio>
               color: Color.fromARGB(255, 214, 199, 141)
             )
           ),
-          width: 600,
+          width: 300,
           height: 40,
           alignment: Alignment.center,
           child: Text
@@ -175,6 +175,11 @@ class _InicioState extends State<Inicio>
             ),
           ),
           SizedBox(height: 10),
+          Padding
+          (
+            padding: const EdgeInsets.all(10),
+            child: Text('Random Recipe')
+          ),
           FlatButton
           (
             child: Text("???"),

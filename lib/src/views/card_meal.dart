@@ -22,87 +22,75 @@ class CardMeal extends StatelessWidget
   {
     return Container
     (
+      width: 200,
+      height: 200,
       margin: EdgeInsets.symmetric
       (
-        horizontal: 10,
-        vertical: 5
+        horizontal: 20,
+        vertical: 10
       ),
       decoration: BoxDecoration
       (
-        borderRadius: BorderRadius.circular(15),
+        color: Colors.white,
+        shape: BoxShape.rectangle,
+        border: Border.all
+        (
+          width: 4,
+          color: Color.fromARGB(255, 214, 199, 141)
+        ),
+        borderRadius: BorderRadius.circular(10),
         boxShadow:
         [
           BoxShadow
           (
             color:Colors.black54,
-            offset: Offset(0,.5),
-            blurRadius: 1
+            offset: Offset(5,3),
+            blurRadius: 5
           )
         ]
       ),
-      child: ClipRRect
+      child: FlatButton
       (
-        borderRadius: BorderRadius.circular(10),
-        child: Stack
+        child: Column
         (
-          alignment: Alignment.bottomCenter,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: 
           [
             Container
             (
               child: FadeInImage
               (
+                height: 150,
                 placeholder: AssetImage('images/activity_indicator.gif'),
                 image: NetworkImage('${meal.strMealThumb}'),
-                fadeInDuration: Duration(milliseconds: 500)
+                fadeInDuration: Duration(milliseconds: 500),
+                fit: BoxFit.cover
               )
             ),
-            Opacity
+            Padding
             (
-              opacity: .5,
-              child: Container
+              padding: const EdgeInsets.all(5),
+              child: Text
               (
-                height: 50,
-                color: Colors.black,
-                child: Padding
+                meal.strMeal,
+                style: TextStyle
                 (
-                  padding: const EdgeInsets.all(10),
-                  child: Row
-                  (
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children:
-                    [
-                      Text
-                      (
-                        meal.strMeal,
-                        style: TextStyle
-                        (
-                          color: Colors.white
-                        ),
-                      ),
-                      FlatButton
-                      (
-                        child: Icon
-                        (
-                          Icons.chevron_right,
-                          color: Colors.white
-                        ),
-                        onPressed: ()
-                        {
-                          Navigator.push
-                          (
-                            context,
-                            MaterialPageRoute(builder: (context) => Receta(api: api, idMeal: meal.idMeal, random: false))
-                          );
-                        }
-                      )
-                    ]
-                  )
-                )
-              )
+                  color: Color.fromARGB(255, 216, 150, 83),
+                  fontWeight: FontWeight.bold
+                ),
+                textAlign: TextAlign.center,
+              ),
             )
           ]
-        )
+        ),
+        onPressed: ()
+        {
+          Navigator.push
+          (
+            context,
+            MaterialPageRoute(builder: (context) => Receta(api: api, idMeal: meal.idMeal, random: false))
+          );
+        }
       )
     );
   }

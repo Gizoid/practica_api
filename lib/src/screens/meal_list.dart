@@ -51,7 +51,7 @@ class _MealListState extends State<MealList>
               color: Color.fromARGB(255, 214, 199, 141)
             )
           ),
-          width: 600,
+          width: 200,
           height: 40,
           alignment: Alignment.center,
           child: Text
@@ -68,6 +68,7 @@ class _MealListState extends State<MealList>
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 224, 144, 143)
       ),
+      backgroundColor: Color.fromARGB(255, 231, 222, 189),
       body: FutureBuilder
       (
         future: api.getMeals(category,area,letter),
