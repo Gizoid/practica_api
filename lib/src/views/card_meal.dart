@@ -61,7 +61,7 @@ class CardMeal extends StatelessWidget
               child: FadeInImage
               (
                 height: 150,
-                placeholder: AssetImage('images/activity_indicator.gif'),
+                placeholder: AssetImage('images/loading.gif'),
                 image: NetworkImage('${meal.strMealThumb}'),
                 fadeInDuration: Duration(milliseconds: 500),
                 fit: BoxFit.cover

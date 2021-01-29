@@ -51,7 +51,7 @@ class _InicioState extends State<Inicio>
           alignment: Alignment.center,
           child: Text
           (
-            "Meals",
+            "Search Meals",
             textAlign: TextAlign.center,
             style: TextStyle
             (
@@ -70,7 +70,7 @@ class _InicioState extends State<Inicio>
         [
           Padding
           (
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(8),
             child: Text("Search by first letter...")
           ),
           Container
@@ -101,7 +101,7 @@ class _InicioState extends State<Inicio>
           SizedBox(height: 10),
           Padding
           (
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(8),
             child: Text('Categories')
           ),
           Container
@@ -139,7 +139,7 @@ class _InicioState extends State<Inicio>
           SizedBox(height: 10),
           Padding
           (
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(8),
             child: Text('Areas')
           ),
           Container
@@ -177,20 +177,47 @@ class _InicioState extends State<Inicio>
           SizedBox(height: 10),
           Padding
           (
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text('Random Recipe')
           ),
-          FlatButton
+          Padding
           (
-            child: Text("???"),
-            onPressed: ()
-            {
-              Navigator.push
+            padding: const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 30),
+            child: Container
+            (
+              decoration: BoxDecoration
               (
-                context,
-                MaterialPageRoute(builder: (context) => Receta(api: api,idMeal: null, random: true))
-              );
-            },
+                color: Colors.white,
+                shape: BoxShape.rectangle,
+                border: Border.all
+                (
+                  width: 4,
+                  color: Color.fromARGB(255, 214, 199, 141)
+                ),
+                borderRadius: BorderRadius.circular(10),
+                boxShadow:
+                [
+                  BoxShadow
+                  (
+                    color:Colors.black54,
+                    offset: Offset(5,3),
+                    blurRadius: 5
+                  )
+                ]
+              ),
+              child: FlatButton
+              (
+                child: Image.asset("images/random.jpg", height: 200, fit: BoxFit.fill),
+                onPressed: ()
+                {
+                  Navigator.push
+                  (
+                    context,
+                    MaterialPageRoute(builder: (context) => Receta(api: api,idMeal: null, random: true))
+                  );
+                }
+              ),
+            ),
           )
         ]
       )

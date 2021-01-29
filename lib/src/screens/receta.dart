@@ -117,7 +117,7 @@ class Receta extends StatelessWidget
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: Row
               (
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children:
                 [
                   ingredients
@@ -146,9 +146,9 @@ class Receta extends StatelessWidget
                       meal.strIngredient20
                     ]
                   ),
-                  SizedBox(width: 5),
+                  SizedBox(width: 10),
                   ingredients(2, null),
-                  SizedBox(width: 5),
+                  SizedBox(width: 10),
                   ingredients
                   (
                     3,
@@ -229,7 +229,7 @@ class Receta extends StatelessWidget
           text = Text(str, textAlign: TextAlign.left);
           break;
         case 2:
-          str+="---------->\n";
+          str+="----->\n";
           text = Text(str, textAlign: TextAlign.center);
           break;
         case 3:

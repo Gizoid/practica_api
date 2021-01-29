@@ -61,7 +61,7 @@ class CardCategory extends StatelessWidget
               child: FadeInImage
               (
                 height: 100,
-                placeholder: AssetImage('images/activity_indicator.gif'),
+                placeholder: AssetImage('images/loading.gif'),
                 image: NetworkImage('${category.strCategoryThumb}'),
                 fadeInDuration: Duration(milliseconds: 500),
                 fit: BoxFit.cover

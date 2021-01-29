@@ -58,10 +58,18 @@ class CardArea extends StatelessWidget
           [
             Container
             (
+              decoration: BoxDecoration
+              (
+                border: Border.all
+                (
+                  width: 1,
+                  color: Color.fromARGB(255, 214, 199, 141)
+                ),
+              ),
               child: FadeInImage
               (
                 height: 100,
-                placeholder: AssetImage('images/activity_indicator.gif'),
+                placeholder: AssetImage('images/loading.gif'),
                 image: AssetImage('images/${area.strArea}.png'),
                 fadeInDuration: Duration(milliseconds: 500),
                 fit: BoxFit.cover
