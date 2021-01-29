@@ -20,78 +20,74 @@ class CardMeal extends StatelessWidget
   @override
   Widget build(BuildContext context)
   {
-    return Container
+    return Column
     (
-      width: 200,
-      height: 200,
-      margin: EdgeInsets.symmetric
-      (
-        horizontal: 20,
-        vertical: 10
-      ),
-      decoration: BoxDecoration
-      (
-        color: Colors.white,
-        shape: BoxShape.rectangle,
-        border: Border.all
+      children: 
+      [
+        Container
         (
-          width: 4,
-          color: Color.fromARGB(255, 214, 199, 141)
-        ),
-        borderRadius: BorderRadius.circular(10),
-        boxShadow:
-        [
-          BoxShadow
+          width: 250,
+          height: 250,
+          margin: EdgeInsets.only(top: 15),
+          decoration: BoxDecoration
           (
-            color:Colors.black54,
-            offset: Offset(5,3),
-            blurRadius: 5
-          )
-        ]
-      ),
-      child: FlatButton
-      (
-        child: Column
-        (
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: 
-          [
-            Container
+            color: Colors.white,
+            shape: BoxShape.rectangle,
+            border: Border.all
             (
+              width: 4,
+              color: Color.fromARGB(255, 214, 199, 141)
+            ),
+            borderRadius: BorderRadius.circular(10),
+            boxShadow:
+            [
+              BoxShadow
+              (
+                color:Colors.black54,
+                offset: Offset(5,3),
+                blurRadius: 5
+              )
+            ]
+          ),
+          child: FlatButton
+          (
+            child: ClipRRect
+            (
+              borderRadius: BorderRadius.circular(5),
               child: FadeInImage
               (
-                height: 150,
+                height: 200,
                 placeholder: AssetImage('images/loading.gif'),
                 image: NetworkImage('${meal.strMealThumb}'),
                 fadeInDuration: Duration(milliseconds: 500),
                 fit: BoxFit.cover
               )
             ),
-            Padding
-            (
-              padding: const EdgeInsets.all(5),
-              child: Text
+            onPressed: ()
+            {
+              Navigator.push
               (
-                meal.strMeal,
-                style: TextStyle
-                (
-                  color: Color.fromARGB(255, 216, 150, 83),
-                  fontWeight: FontWeight.bold
-                ),
-                textAlign: TextAlign.center,
-              ),
-            )
-          ]
+                context,
+                MaterialPageRoute(builder: (context) => Receta(api: api, idMeal: meal.idMeal, random: false))
+              );
+            }
+          )
         ),
-        onPressed: ()
-        {
-          Navigator.push
+        Padding
+        (
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          child: Text
           (
-            context,
-            MaterialPageRoute(builder: (context) => Receta(api: api, idMeal: meal.idMeal, random: false))
-          );
-        }
-      )
+            meal.strMeal,
+            style: TextStyle
+            (
+              color: Color.fromARGB(255, 216, 150, 83),
+              fontWeight: FontWeight.bold
+            ),
+            textAlign: TextAlign.center
+          )
+        )
+      ]
     );
   }
 }

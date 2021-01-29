@@ -71,28 +71,62 @@ class _InicioState extends State<Inicio>
           Padding
           (
             padding: const EdgeInsets.all(8),
-            child: Text("Search by first letter...")
+            child: Text
+            (
+              "Search by first letter...",
+              style: TextStyle
+              (
+                color: Color.fromARGB(255, 216, 150, 83),
+                fontWeight: FontWeight.bold
+              )
+            )
           ),
           Container
           (
-            height: 50,
+            height: 55,
             child: ListView.builder
             (
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index)
               {
                 String letter = letters[index];
-                return FlatButton
+                return Padding
                 (
-                  child: Text(letter),
-                  onPressed: ()
-                  {
-                    Navigator.push
+                  padding: const EdgeInsets.all(4),
+                  child: Container
+                  (
+                    width: 50,
+                    decoration: BoxDecoration
                     (
-                      context,
-                      MaterialPageRoute(builder: (context) => MealList(category: null, area: null, letter: letter))
-                    );
-                  }
+                      color: Colors.white,
+                      border: Border.all
+                      (
+                        width: 2,
+                        color: Color.fromARGB(255, 214, 199, 141)
+                      ),
+                      borderRadius: BorderRadius.circular(5)
+                    ),
+                    child: FlatButton
+                    (
+                      child: Text
+                      (
+                        letter,
+                        style: TextStyle
+                        (
+                          color: Color.fromARGB(255, 216, 150, 83),
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      onPressed: ()
+                      {
+                        Navigator.push
+                        (
+                          context,
+                          MaterialPageRoute(builder: (context) => MealList(category: null, area: null, letter: letter))
+                        );
+                      }
+                    ),
+                  ),
                 );
               },
               itemCount: letters.length
@@ -102,7 +136,15 @@ class _InicioState extends State<Inicio>
           Padding
           (
             padding: const EdgeInsets.all(8),
-            child: Text('Categories')
+            child: Text
+            (
+              'Categories',
+              style: TextStyle
+              (
+                color: Color.fromARGB(255, 216, 150, 83),
+                fontWeight: FontWeight.bold
+              )
+            )
           ),
           Container
           (
@@ -140,7 +182,15 @@ class _InicioState extends State<Inicio>
           Padding
           (
             padding: const EdgeInsets.all(8),
-            child: Text('Areas')
+            child: Text
+            (
+              'Areas',
+              style: TextStyle
+              (
+                color: Color.fromARGB(255, 216, 150, 83),
+                fontWeight: FontWeight.bold
+              )
+            )
           ),
           Container
           (
@@ -178,7 +228,15 @@ class _InicioState extends State<Inicio>
           Padding
           (
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Text('Random Recipe')
+            child: Text
+            (
+              'Random Recipe',
+              style: TextStyle
+              (
+                color: Color.fromARGB(255, 216, 150, 83),
+                fontWeight: FontWeight.bold
+              )
+            )
           ),
           Padding
           (
